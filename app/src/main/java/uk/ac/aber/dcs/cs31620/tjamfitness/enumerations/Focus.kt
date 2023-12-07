@@ -195,8 +195,19 @@ fun muscleGroupsToFocus(
         }
     }
 
-    if (muscleGroups.size > 3)
-    {
-        return
+    val focusString = StringBuilder()
+
+    muscleGroups.forEachIndexed{ index, muscleGroup ->
+
+        focusString.append(muscleGroup.string)
+
+        if (index == 2)
+        {
+            return focusString.toString()
+        }
+
+        focusString.append(", ")
     }
+
+    return focusString.dropLast(2).toString()
 }

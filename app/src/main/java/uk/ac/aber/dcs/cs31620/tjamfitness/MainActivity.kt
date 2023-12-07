@@ -10,6 +10,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import uk.ac.aber.dcs.cs31620.tjamfitness.navigation.Screen
 import uk.ac.aber.dcs.cs31620.tjamfitness.ui.components.listitem.DayListItem
 import uk.ac.aber.dcs.cs31620.tjamfitness.ui.theme.TJAMFitnessTheme
 
@@ -46,5 +50,24 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 fun GreetingPreview() {
     TJAMFitnessTheme {
         Greeting("Android")
+    }
+}
+
+@Composable
+private fun BuildNavGraph()
+{
+    val navController = rememberNavController()
+
+    NavHost(
+        navController = navController,
+        startDestination = Screen.AllSessions.route
+    )
+    {
+        composable(Screen.AllSessions.route) {}
+        composable(Screen.AllExercises.route) {}
+        composable(Screen.OneSession.route) {}
+        composable(Screen.OneExercise.route) {}
+        composable(Screen.AddExerciseToSession.route) {}
+        composable(Screen.SearchExercise.route) {}
     }
 }

@@ -29,9 +29,9 @@ enum class Muscle(val string: String)
 
     //Leg muscles
     CALVES("Calves"),
-    GLUTES("GLUTES"),
-    HAMSTRINGS("HAMSTRINGS"),
-    QUADS("QUADS"),
+    GLUTES("Glutes"),
+    HAMSTRINGS("Hamstrings"),
+    QUADS("Quads"),
 
     //Back muscles
     TRICEPS_LATERAL_HEAD("Lateral Head"),

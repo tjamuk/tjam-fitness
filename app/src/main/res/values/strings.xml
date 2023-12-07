@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">TJAM Fitness</string>
+    <string name="weekly_sessions_title">Weekly Schedule</string>
+    <string name="all_sessions_label">Sessions</string>
+    <string name="all_exercises_label">Exercises</string>
 </resources>
