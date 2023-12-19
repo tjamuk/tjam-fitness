@@ -13,7 +13,7 @@ sealed class Screen(val route: String) {
 }
 
 /**
- * List of top-lvel screens provided as a convenience.
+ * List of screens provided as a convenience.
  */
 val screens = listOf(
     Screen.AllSessions,
@@ -22,4 +22,12 @@ val screens = listOf(
     Screen.OneExercise,
     Screen.AddExerciseToSession,
     Screen.SearchExercise,
+)
+
+/**
+ * List of top-level screens provided as a convenience.
+ */
+val topLevelScreens = listOf(
+    Screen.AllSessions,
+    Screen.AllExercises,
 )

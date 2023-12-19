@@ -15,6 +15,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import uk.ac.aber.dcs.cs31620.tjamfitness.navigation.Screen
 import uk.ac.aber.dcs.cs31620.tjamfitness.ui.components.listitem.DayListItem
+import uk.ac.aber.dcs.cs31620.tjamfitness.ui.screens.AllSessionsScreen
+import uk.ac.aber.dcs.cs31620.tjamfitness.ui.screens.OneExerciseScreen
 import uk.ac.aber.dcs.cs31620.tjamfitness.ui.theme.TJAMFitnessTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,10 +29,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    DayListItem(
-                        headlineText = "Monday",
-                        supportingText = "Full-body • 1h22"
-                    )
+                    BuildNavGraph()
                 }
             }
         }
@@ -60,13 +59,13 @@ private fun BuildNavGraph()
 
     NavHost(
         navController = navController,
-        startDestination = Screen.AllSessions.route
+        startDestination = Screen.OneExercise.route //TODO: MAKE TO AllSessions
     )
     {
-        composable(Screen.AllSessions.route) {}
+        composable(Screen.AllSessions.route) {AllSessionsScreen(navController)}
         composable(Screen.AllExercises.route) {}
         composable(Screen.OneSession.route) {}
-        composable(Screen.OneExercise.route) {}
+        composable(Screen.OneExercise.route) {OneExerciseScreen(navController)}
         composable(Screen.AddExerciseToSession.route) {}
         composable(Screen.SearchExercise.route) {}
     }
