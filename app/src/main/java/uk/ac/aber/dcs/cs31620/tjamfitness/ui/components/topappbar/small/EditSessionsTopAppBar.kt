@@ -18,26 +18,34 @@ import uk.ac.aber.dcs.cs31620.tjamfitness.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun EditSessionsTopAppBar()
+fun EditSessionsTopAppBar(
+    onGoBack: () -> Unit,
+    onSelectAll: (Boolean) -> Unit,
+    onDelete: () -> Unit,
+    allSelected: Boolean
+)
 {
     TopAppBar(
         title = { Text("") },
-        navigationIcon = { Icon(Icons.Filled.ArrowBack,"back") },
+        navigationIcon = {
+            IconButton(
+                content = { Icon(Icons.Filled.ArrowBack,"back") },
+                onClick = onGoBack
+            )
+        },
         actions = {
             Text("Select All")
-            Checkbox(checked = false, onCheckedChange = {})
+            Checkbox(checked = allSelected, onCheckedChange = onSelectAll)
 
-            IconButton(
-                content = { Icon(Icons.Filled.Title, "enter") },
-                onClick = {}
-            )
+//            IconButton(
+//                content = { Icon(Icons.Filled.Title, "enter") },
+//                onClick = {}
+//            )
             IconButton(
                 content = { Icon(Icons.Filled.Delete, "enter") },
-                onClick = {}
+                onClick = onDelete
             )
-
         }
-
     )
 }
 
@@ -45,5 +53,7 @@ fun EditSessionsTopAppBar()
 @Composable
 fun PreviewEditSessionsTopAppBar()
 {
-    EditSessionsTopAppBar()
+    EditSessionsTopAppBar(
+        {}, {}, {}, false
+    )
 }
