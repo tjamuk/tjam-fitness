@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-//    id("kotlin-kapt")
+    id("kotlin-kapt")
 }
 
 android {
@@ -20,12 +20,12 @@ android {
             useSupportLibrary = true
         }
 
-//        javaCompileOptions {
-//            annotationProcessorOptions {
-//                arguments ["room.schemaLocation"] =
-//                    "$projectDir/schemas".toString()
-//            }
-//        }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments ["room.schemaLocation"] =
+                    "$projectDir/schemas".toString()
+            }
+        }
     }
 
     buildTypes {
@@ -92,15 +92,15 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-//    // Room
-//    implementation("androidx.room:room-runtime:2.6.1")
-//    implementation("androidx.room:room-ktx:2.6.1")
-//    kapt("androidx.room:room-compiler:2.6.1")
-//
-//    // LiveData
-//    implementation("androidx.compose.runtime:runtime-livedata")
-//
-//    // ViewModels
-//    implementation("androidx.lifecycle:lifecycle-viewmodel-compose")
+    // Room
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
+
+    // LiveData
+    implementation("androidx.compose.runtime:runtime-livedata")
+
+    // ViewModels
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose")
 
 }

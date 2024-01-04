@@ -10,10 +10,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -63,10 +61,10 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavController
 import uk.ac.aber.dcs.cs31620.tjamfitness.R
-import uk.ac.aber.dcs.cs31620.tjamfitness.enumerations.MuscleGroup
-import uk.ac.aber.dcs.cs31620.tjamfitness.enumerations.muscleGroups
-import uk.ac.aber.dcs.cs31620.tjamfitness.enumerations.numOfMuscleGroups
-import uk.ac.aber.dcs.cs31620.tjamfitness.enumerations.numOfMuscleGroupsHalved
+import uk.ac.aber.dcs.cs31620.tjamfitness.enumerations.Muscle
+import uk.ac.aber.dcs.cs31620.tjamfitness.enumerations.muscles
+import uk.ac.aber.dcs.cs31620.tjamfitness.enumerations.numOfMuscles
+import uk.ac.aber.dcs.cs31620.tjamfitness.enumerations.numOfMusclesHalved
 import uk.ac.aber.dcs.cs31620.tjamfitness.ui.components.other.SegmentedButtons
 import uk.ac.aber.dcs.cs31620.tjamfitness.ui.components.topappbar.small.OneExerciseTopAppBar
 
@@ -238,7 +236,7 @@ fun IconAndText(
 fun SingleAreaChanger(
     isCheckboxChecked: Boolean,
     onCheckboxChanged: (Boolean, Int) -> Unit,
-    muscleGroup: MuscleGroup
+    muscle: Muscle
 )
 {
 //    var isDropdownEnabled = remember { mutableStateOf(false) }
@@ -250,10 +248,10 @@ fun SingleAreaChanger(
         Checkbox(
             checked = isCheckboxChecked,
             onCheckedChange = { isChecked ->
-                onCheckboxChanged(isChecked, muscleGroup.ordinal)
+                onCheckboxChanged(isChecked, muscle.ordinal)
             }
         )
-        Text(muscleGroup.string)
+        Text(muscle.string)
     }
 
 }
@@ -320,21 +318,21 @@ fun AllAreasChanger(
     {
         Column()
         {
-            for (muscleGroupIndex in 0..(numOfMuscleGroupsHalved - 1)) {
+            for (muscleGroupIndex in 0..(numOfMusclesHalved - 1)) {
                 SingleAreaChanger(
                     isCheckboxChecked = getCheckboxValue(muscleGroupIndex),
                     onCheckboxChanged = onCheckboxChanged,
-                    muscleGroup = muscleGroups[muscleGroupIndex]
+                    muscle = muscles[muscleGroupIndex]
                 )
             }
         }
         Column()
         {
-            for (muscleGroupIndex in numOfMuscleGroupsHalved..(numOfMuscleGroups - 1)) {
+            for (muscleGroupIndex in numOfMusclesHalved..(numOfMuscles - 1)) {
                 SingleAreaChanger(
                     isCheckboxChecked = getCheckboxValue(muscleGroupIndex),
                     onCheckboxChanged = onCheckboxChanged,
-                    muscleGroup = muscleGroups[muscleGroupIndex]
+                    muscle = muscles[muscleGroupIndex]
                 )
             }
         }

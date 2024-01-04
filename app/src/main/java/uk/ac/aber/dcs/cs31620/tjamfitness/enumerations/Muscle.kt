@@ -1,40 +1,154 @@
 package uk.ac.aber.dcs.cs31620.tjamfitness.enumerations
 
+//enum class MuscleGroup(val string: String, val muscles: Set<Muscle>)
+//{
+//    ABS(
+//        string = "Abs",
+//        muscles = setOf(
+//            Muscle.LOWER_ABS,
+//            Muscle.MIDDLE_ABS,
+//            Muscle.UPPER_ABS,
+//        )
+//    ),
+//
+//    BACK(
+//        string = "Back",
+//        muscles = setOf(
+//            Muscle.ERECTOR_SPINAE,
+//            Muscle.LATS,
+//            Muscle.RHOMBOIDS,
+//            Muscle.TRAPS
+//        )
+//    ),
+//
+//    BICEPS(
+//        string = "Bicep",
+//        muscles = setOf(
+//            Muscle.BICEPS_SHORT_HEAD,
+//            Muscle.BICEPS_LONG_HEAD,
+//        )
+//    ),
+//
+//    CHEST(
+//        string = "Abs",
+//        muscles = setOf(
+//            Muscle.LOWER_CHEST,
+//            Muscle.MIDDLE_CHEST,
+//            Muscle.UPPER_CHEST,
+//        )
+//    ),
+//
+//    DELTOIDS(
+//        string = "Abs",
+//        muscles = setOf(
+//            Muscle.FRONT_DELTS,
+//            Muscle.SIDE_DELTS,
+//            Muscle.REAR_DELTS,
+//        )
+//    ),
+//
+//    LEGS(
+//        string = "Abs",
+//        muscles = setOf(
+//            Muscle.CALVES,
+//            Muscle.GLUTES,
+//            Muscle.HAMSTRINGS,
+//            Muscle.QUADS
+//        )
+//    ),
+//
+//    TRICEPS(
+//        string = "Abs",
+//        muscles = setOf(
+//            Muscle.TRICEPS_LATERAL_HEAD,
+//            Muscle.TRICEPS_LONG_HEAD,
+//            Muscle.TRICEPS_MEDIAL_HEAD,
+//        )
+//    )
+//}
+
 enum class Muscle(val string: String)
 {
-    //Abs muscles
-    LOWER_ABS("Lower"),
-    MIDDLE_ABS("Middle"),
-    UPPER_ABS("Upper"),
+    ABS(
+        string = "Abs",
+    ),
 
-    //Back muscles
-    ERECTOR_SPINAE("Erector Spinae"),
-    LATS("Lats"),
-    RHOMBOIDS("Rhomboids"),
-    TRAPS("Traps"),
+    BACK(
+        string = "Back",
+    ),
 
-    //Bicep muscles
-    BICEPS_SHORT_HEAD("Short Head"),
-    BICEPS_LONG_HEAD("Long Head"),
+    BICEPS(
+        string = "Bicep",
+    ),
 
-    //Chest muscles
-    LOWER_CHEST("Lower"),
-    MIDDLE_CHEST("Middle"),
-    UPPER_CHEST("Upper"),
+    CHEST(
+        string = "Chest",
+    ),
 
-    //Deltoid muscles
-    FRONT_DELTS("Front"),
-    REAR_DELTS("Rear"),
-    SIDE_DELTS("Side"),
+    DELTOIDS(
+        string = "Deltoids",
+    ),
 
-    //Leg muscles
-    CALVES("Calves"),
-    GLUTES("Glutes"),
-    HAMSTRINGS("Hamstrings"),
-    QUADS("Quads"),
+    LEGS(
+        string = "Legs",
+    ),
 
-    //Back muscles
-    TRICEPS_LATERAL_HEAD("Lateral Head"),
-    TRICEPS_LONG_HEAD("Long Head"),
-    TRICEPS_MEDIAL_HEAD("Medial Head"),
+    TRICEPS(
+        string = "Triceps",
+    ),
+
+    FOREARMS(
+        string = "Forearms",
+    )
 }
+
+val muscles = Muscle.values()
+val numOfMuscles = muscles.size
+val numOfMusclesHalved = numOfMuscles/2
+
+
+
+//val MUSCLE_GROUP_MUSCLES = mapOf<MuscleGroup,Set<Muscle>>(
+//    MuscleGroup.ABS to setOf(
+//        Muscle.LOWER_ABS,
+//        Muscle.MIDDLE_ABS,
+//        Muscle.UPPER_ABS,
+//    ),
+//
+//    MuscleGroup.BACK to setOf(
+//        Muscle.ERECTOR_SPINAE,
+//        Muscle.LATS,
+//        Muscle.RHOMBOIDS,
+//        Muscle.TRAPS
+//    ),
+//
+//    MuscleGroup.BICEPS to setOf(
+//        Muscle.BICEPS_SHORT_HEAD,
+//        Muscle.BICEPS_LONG_HEAD,
+//    ),
+//
+//    MuscleGroup.CHEST to setOf(
+//        Muscle.LOWER_CHEST,
+//        Muscle.MIDDLE_CHEST,
+//        Muscle.UPPER_CHEST,
+//    ),
+//
+//    MuscleGroup.DELTOIDS to setOf(
+//        Muscle.FRONT_DELTS,
+//        Muscle.SIDE_DELTS,
+//        Muscle.REAR_DELTS,
+//    ),
+//
+//    MuscleGroup.LEGS to setOf(
+//        Muscle.CALVES,
+//        Muscle.GLUTES,
+//        Muscle.HAMSTRINGS,
+//        Muscle.QUADS
+//    ),
+//
+//    MuscleGroup.TRICEPS to setOf(
+//        Muscle.TRICEPS_LATERAL_HEAD,
+//        Muscle.TRICEPS_LONG_HEAD,
+//        Muscle.TRICEPS_MEDIAL_HEAD,
+//    ),
+//)

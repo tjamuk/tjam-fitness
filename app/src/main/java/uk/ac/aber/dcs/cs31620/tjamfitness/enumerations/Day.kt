@@ -1,5 +1,7 @@
 package uk.ac.aber.dcs.cs31620.tjamfitness.enumerations
 
+import uk.ac.aber.dcs.cs31620.tjamfitness.datasource.entities.SessionEntity
+
 enum class Day(
     val string: String,
 )
@@ -12,3 +14,5 @@ enum class Day(
     SATURDAY("Saturday"),
     SUNDAY("Sunday"),
 }
+
+val days = Day.values()

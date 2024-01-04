@@ -6,24 +6,19 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import uk.ac.aber.dcs.cs31620.tjamfitness.datasource.entities.ExerciseEntity
+import uk.ac.aber.dcs.cs31620.tjamfitness.datasource.entities.SessionEntity
 
 //import uk.ac.aber.dcs.cs31620.tjamfitness.model.Exercise
 //
 @Dao
-interface ExerciseDao {
+interface SessionDao {
     @Insert
-    fun insertSingleExercise(exercise: ExerciseEntity)
+    fun insertSingleSession(exercise: ExerciseEntity)
 
     @Update
-    fun updateSingleExercise(exercise: ExerciseEntity)
+    fun updateSingleSession(exercise: ExerciseEntity)
 
-    @Delete
-    fun deleteSingleExercise(exercise: ExerciseEntity)
-
-    @Query("DELETE FROM exercises_table")
-    fun deleteAllExercises()
-
-    @Delete
-    fun deleteMultipleExercises(exercises: List<ExerciseEntity>)
+    @Update
+    fun updateMultipleSessions(sessions: List<SessionEntity>)
 
 }
