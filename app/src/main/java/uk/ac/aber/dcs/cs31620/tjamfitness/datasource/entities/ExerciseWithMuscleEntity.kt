@@ -3,8 +3,15 @@ package uk.ac.aber.dcs.cs31620.tjamfitness.datasource.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
-import uk.ac.aber.dcs.cs31620.tjamfitness.enumerations.Muscle
+import uk.ac.aber.dcs.cs31620.tjamfitness.model.enumerations.Muscle
 
+/**
+ * Each exercise works 0 or more muscles.
+ *
+ * Cannot have nulls or collections (0 or more).
+ *
+ * So this entity represents this 0 or more relationship between exercises and muscles.
+ */
 @Entity(
     tableName = "exercises_to_muscles_cross_ref_table",
     foreignKeys = [
@@ -18,7 +25,7 @@ import uk.ac.aber.dcs.cs31620.tjamfitness.enumerations.Muscle
     ],
     primaryKeys = [
         "exercise_id",
-        "muscle_group"
+        "muscle"
     ]
 )
 data class ExerciseWithMuscleEntity(
@@ -26,6 +33,6 @@ data class ExerciseWithMuscleEntity(
     @ColumnInfo(name = "exercise_id")
     val exerciseId: Int,
 
-    @ColumnInfo(name = "muscle_group")
+    @ColumnInfo(name = "muscle")
     val muscle: Muscle,
 )

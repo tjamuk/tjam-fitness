@@ -103,4 +103,6 @@ dependencies {
     // ViewModels
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose")
 
+    //Glide
+    implementation("com.github.bumptech.glide:compose:1.0.0-alpha.3")
 }

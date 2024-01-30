@@ -1,10 +1,9 @@
-package uk.ac.aber.dcs.cs31620.tjamfitness.ui.components.topappbar.small
+package uk.ac.aber.dcs.cs31620.tjamfitness.ui.components.topappbar
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Title
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -12,18 +11,21 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
-import uk.ac.aber.dcs.cs31620.tjamfitness.R
 
+/**
+ * The top app bar that is used on a screen/page with a list with selectable items.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun EditSessionsTopAppBar(
+fun EditListTopAppBar(
     onGoBack: () -> Unit,
     onSelectAll: (Boolean) -> Unit,
     onDelete: () -> Unit,
-    allSelected: Boolean
-)
+    allSelected: Boolean,
+    onEditExercise: () -> Unit = {},
+    isOneItemSelected: Boolean = false,
+    isForExerciseList: Boolean = true,
+    )
 {
     TopAppBar(
         title = { Text("") },
@@ -37,23 +39,24 @@ fun EditSessionsTopAppBar(
             Text("Select All")
             Checkbox(checked = allSelected, onCheckedChange = onSelectAll)
 
-//            IconButton(
-//                content = { Icon(Icons.Filled.Title, "enter") },
-//                onClick = {}
-//            )
+            if (isForExerciseList)
+            {
+                IconButton(
+                    content = {
+                        Icon(
+                            imageVector = Icons.Filled.Edit,
+                            contentDescription = "edit exercise",
+                        )
+                    },
+                    onClick = onEditExercise,
+                    enabled = isOneItemSelected
+                )
+            }
+
             IconButton(
                 content = { Icon(Icons.Filled.Delete, "enter") },
                 onClick = onDelete
             )
         }
-    )
-}
-
-@Preview
-@Composable
-fun PreviewEditSessionsTopAppBar()
-{
-    EditSessionsTopAppBar(
-        {}, {}, {}, false
     )
 }

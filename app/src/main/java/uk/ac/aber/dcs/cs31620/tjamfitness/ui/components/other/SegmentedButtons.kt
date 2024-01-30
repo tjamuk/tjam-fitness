@@ -18,11 +18,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import uk.ac.aber.dcs.cs31620.tjamfitness.ui.screens.IconAndText
 
 private const val cornerRadius = 100
 private const val firstButtonIndex = 0
 
+/**
+ * My pride and joy.
+ *
+ * Used in create/edit exercise form to select between either (sets, reps or weight (of an exercise)) OR (weights of sets 1,2 and 3 of a dropset (of an exercise))
+ */
 @Composable
 fun SegmentedButtons(
     items: List<String>,

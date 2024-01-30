@@ -10,6 +10,8 @@ sealed class Screen(val route: String) {
     object AddExerciseToSession : Screen("add-exercise-to-session")
 
     object SearchExercise : Screen("search-exercise")
+
+    object CreateExercise : Screen("create-exercise")
 }
 
 /**
@@ -22,6 +24,7 @@ val screens = listOf(
     Screen.OneExercise,
     Screen.AddExerciseToSession,
     Screen.SearchExercise,
+    Screen.CreateExercise,
 )
 
 /**

@@ -3,4 +3,5 @@
     <string name="weekly_sessions_title">Weekly Schedule</string>
     <string name="all_sessions_label">Sessions</string>
     <string name="all_exercises_label">Exercises</string>
+    <string name="default_image">file:///android_asset/images/full_body_fixed.jpg</string>
 </resources>

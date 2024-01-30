@@ -4,10 +4,16 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+/**
+ * An entity representing an exercise.
+ *
+ * @see DropsetEntity for its dropset set values.
+ * @see ExerciseWithMuscleEntity for the muscles that it works.
+ */
 @Entity(tableName = "exercises_table")
 data class ExerciseEntity(
 
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
 
     var name: String,

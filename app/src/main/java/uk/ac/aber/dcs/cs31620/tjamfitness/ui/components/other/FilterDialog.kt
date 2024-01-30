@@ -8,64 +8,40 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.tooling.preview.Preview
-import uk.ac.aber.dcs.cs31620.tjamfitness.ui.screens.AllAreasChanger
+import uk.ac.aber.dcs.cs31620.tjamfitness.model.enumerations.Muscle
+import uk.ac.aber.dcs.cs31620.tjamfitness.model.enumerations.muscles
 
+/**
+ * Used in a screen showing a list of exercises. Filters those exercises by muscles worked by exercises.
+ *
+ * This is an alert dialog contains 2 columns of checkboxes of muscles.
+ *
+ * Selecting a checkbox means you're showing exercises of that exercise.
+ */
 @Composable
 fun FilterDialog(
     isDialogOpen: Boolean,
     onToggleDialog: (Boolean) -> Unit = {},
-    onUpdateFilters: (Set<Int>) -> Unit = {},
+    onUpdateFilters: (Set<Muscle>) -> Unit = {},
 ) {
-//    val muscleGroupFilters = remember {
-//        mutableStateListOf<Boolean>().apply {
-//            addAll(
-//                List(numOfMuscleGroups) {false}
-//            )
-//        }
-//    }
 
-    var muscleGroupFilters by remember { mutableStateOf<Set<Int>>(emptySet()) }
-
-
-//    val currentFiltersText = StringBuilder("Filters: ")
-//
-//    for (muscleGroup in muscleGroups)
-//    {
-//        if (muscleGroup)
-//        {
-//            currentFiltersText.append(MuscleGroup.)
-//        }
-//    }
-//
-//    muscleGroups.forEachIndexed { muscleGroupIndex, isFilteringMuscleGroup ->
-//        curren
-//    }
+    var muscleGroupFilters by remember { mutableStateOf<Set<Muscle>>(emptySet()) }
 
     if (isDialogOpen)
     {
         AlertDialog(
             title = { Text("Filter Exercises") },
             text = {
-//            AllAreasChanger(
-//                onCheckboxChanged = { isChecked, muscleGroupIndex ->
-//                    muscleGroupFilters[muscleGroupIndex]
-//                },
-//                getCheckboxValue = { muscleGroupIndex ->
-//                    muscleGroupFilters[muscleGroupIndex]
-//                },
-//            )
-
                 AllAreasChanger(
-                    onCheckboxChanged = { isChecked, muscleGroupOrdinal ->
+                    onCheckboxChanged = { isChecked, muscleOrdinal ->
                         muscleGroupFilters =
                             if (isChecked)
-                                muscleGroupFilters.plus(muscleGroupOrdinal)
+                                muscleGroupFilters.plus(muscles[muscleOrdinal])
                             else
-                                muscleGroupFilters.minus(muscleGroupOrdinal)
+                                muscleGroupFilters.minus(muscles[muscleOrdinal])
                     },
-                    getCheckboxValue = { muscleGroupOrdinal ->
-                        muscleGroupFilters.contains(muscleGroupOrdinal)
+                    getCheckboxValue = { muscleOrdinal ->
+                        muscleGroupFilters.contains(muscles[muscleOrdinal])
                     },
                 )
             },
@@ -74,7 +50,6 @@ fun FilterDialog(
                 TextButton(
                     onClick = {
                         onToggleDialog(false)
-                        // Update the distance to the slider value
                         onUpdateFilters(muscleGroupFilters)
                     }
                 ) {
@@ -85,7 +60,6 @@ fun FilterDialog(
                 TextButton(
                     onClick = {
                         onToggleDialog(false)
-                        // Use the original distance
                     }
                 ) {
                     Text("Cancel")
@@ -94,14 +68,4 @@ fun FilterDialog(
         )
     }
 
-}
-
-
-
-
-@Preview
-@Composable
-fun previewFilterDialog()
-{
-    FilterDialog(true)
 }

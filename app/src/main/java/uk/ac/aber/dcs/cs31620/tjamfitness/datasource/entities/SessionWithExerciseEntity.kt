@@ -3,8 +3,15 @@ package uk.ac.aber.dcs.cs31620.tjamfitness.datasource.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
-import uk.ac.aber.dcs.cs31620.tjamfitness.enumerations.Day
+import uk.ac.aber.dcs.cs31620.tjamfitness.model.enumerations.Day
 
+/**
+ * Each session has 0 or more exercises.
+ *
+ * Cannot have nulls or collections (0 or more).
+ *
+ * So this entity represents this 0 or more relationship between sessions and exercises.
+ */
 @Entity(
     tableName = "sessions_to_exercises_cross_ref_table",
     primaryKeys = [

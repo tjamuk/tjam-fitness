@@ -1,4 +1,4 @@
-package uk.ac.aber.dcs.cs31620.tjamfitness.ui.components.topappbar.small
+package uk.ac.aber.dcs.cs31620.tjamfitness.ui.components.topappbar
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -11,8 +11,10 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 
+/**
+ * The normal top app bar for the add exercise to session screen.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddExerciseTopBar(
@@ -49,14 +51,5 @@ fun AddExerciseTopBar(
                 onClick = onToggleFilterDialog
             )
         }
-    )
-}
-
-@Preview
-@Composable
-fun PreviewAddExerciseTopAppBar()
-{
-    AddExerciseTopBar(
-        false, {}, {}, {}
     )
 }

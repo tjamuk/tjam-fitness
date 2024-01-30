@@ -5,6 +5,11 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
+/**
+ * An exercise can have a dropset.
+ *
+ * In order to avoid nulls, if an exercise has a dropset, it can be found in this relationship entity.
+ */
 @Entity(
     tableName = "dropsets_table",
     foreignKeys = [
